@@ -2,37 +2,25 @@
 const Question = () => {
     return (
         // <h1>Question:出題</h1>
-    <main className="flex justify-center items-center h-screen">
-        <div className="w-full max-w-lg bg-white p-4">
-            <div className="grid grid-cols-2 gap-4">
-                <div className="col-span-2 text-center text-black text-xl font-normal font-['Inter']">問題文</div>
-                <Link href="../explanation/page.js" passHref>
-                    <div
-                        className="bg-red-400 rounded-2xl h-8 flex items-center justify-center text-white text-xl font-normal font-['Inter']">
-                        sec1
-                    </div>
-                </Link>
-                <Link href="../explanation/page.js" passHref>
-                    <div
-                        className="bg-red-400 rounded-2xl h-8 flex items-center justify-center text-white text-xl font-normal font-['Inter']">
-                        sec2
-                    </div>
-                </Link>
-                <Link href="../explanation" passHref>
-                    <div
-                        className="bg-red-400 rounded-2xl h-8 flex items-center justify-center text-white text-xl font-normal font-['Inter']">
-                        sec3
-                    </div>
-                </Link>
-                <Link href="../explanation/page.js" passHref>
-                    <div
-                        className="bg-red-400 rounded-2xl h-8 flex items-center justify-center text-white text-xl font-normal font-['Inter']">
-                        sec4
-                    </div>
-                </Link>
-            </div>
+        <div style={{width: 498, height: 275, position: 'relative', background: 'white'}}>
+        <div style={{width: 141.96, height: 33, left: 283, top: 200, position: 'absolute'}}>
+          <div style={{width: 141.96, height: 33, left: 0, top: 0, position: 'absolute', background: '#F36D6D', borderRadius: 20}} />
+          <div style={{width: 74.13, height: 18.78, left: 34, top: 0, position: 'absolute', textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>sec4<br/></div>
         </div>
-    </main>
+        <div style={{width: 141.96, height: 33, left: 73, top: 200, position: 'absolute'}}>
+          <div style={{width: 141.96, height: 33, left: 0, top: 0, position: 'absolute', background: '#F36D6D', borderRadius: 20}} />
+          <div style={{width: 74.13, height: 18.78, left: 34, top: 0, position: 'absolute', textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>sec3</div>
+        </div>
+        <div style={{width: 141.96, height: 33, left: 283, top: 141, position: 'absolute'}}>
+          <div style={{width: 141.96, height: 33, left: 0, top: 0, position: 'absolute', background: '#F36D6D', borderRadius: 20}} />
+          <div style={{width: 74.13, height: 18.78, left: 34, top: 0, position: 'absolute', textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>sec2</div>
+        </div>
+        <div style={{left: 92, top: 42, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>問題文</div>
+        <div style={{width: 141.96, height: 33, left: 73, top: 141, position: 'absolute'}}>
+          <div style={{width: 141.96, height: 33, left: 0, top: 0, position: 'absolute', background: '#F36D6D', borderRadius: 20}} />
+          <div style={{width: 74.13, height: 18.78, left: 34, top: 0, position: 'absolute', textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>sec1</div>
+        </div>
+      </div>
 )
 }
 

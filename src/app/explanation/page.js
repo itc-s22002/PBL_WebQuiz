@@ -1,26 +1,20 @@
 //解説画面
 const Explanation = () => {
     return(
-            <main className="min-h-screen flex justify-center items-center">
-                <div className="w-full h-full flex flex-col items-center justify-center bg-white p-8">
-                    <div className="w-full text-center">
-                        <Link href="../start" passHref>
-                            <a className="block px-4 py-2 bg-red-400 rounded-[20px] text-white text-4xl font-normal font-['Inter'] hover:bg-blue-500">
-                                next
-                            </a>
-                        </Link>
-                    </div>
-                    <div className="w-full text-left text-black text-6xl font-bold font-['Inter'] mt-8">
-                        解説文
-                    </div>
-                    <div className="w-full text-center text-black text-6xl font-bold font-['Inter'] mt-8">
-                        統計情報
-                    </div>
-                    <div className="w-full text-center text-black text-6xl font-bold font-['Inter'] mt-8">
-                        テスト
-                    </div>
+        <div style={{width: 498, height: 275, position: 'relative', background: 'white'}}>
+            <div style={{width: 141.96, height: 33, left: 296, top: 173, position: 'absolute'}}>
+            <div style={{width: 141.96, height: 33, left: 0, top: 0, position: 'absolute', background: '#F36D6D', borderRadius: 20}} />
+                <div style={{width: 74.13, height: 18.78, left: 34, position: 'absolute', textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>
+                    next
                 </div>
-            </main>
+            </div>
+            <div style={{left: 50, top: 45, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>
+                    解説文
+            </div>
+            <div style={{left: 50, top: 137, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>
+                統計情報
+            </div>
+        </div>
         );
 }
 
