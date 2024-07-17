@@ -55,22 +55,22 @@ const Explanation = () => {
     return(
         <>
         {quiz ? (
-            <div style={{width: 498, height: 275, position: 'relative', background: 'white'}}>
-            <div style={{width: 141.96, height: 33, left: 296, top: 173, position: 'absolute'}}>
-            <div onClick={() => router.push('/question')} style={{width: 141.96, height: 33, left: 0, top: 0, position: 'absolute', background: '#F36D6D', borderRadius: 20}} />
-                <div onClick={() => router.push('/question')} style={{width: 74.13, height: 18.78, left: 34, position: 'absolute', textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>
-                    next
+            <div style={{padding: 12,max_width: 800,margin:(0,"auto")}}>
+                <div style={{left: 50, color: 'black', fontSize: 20, fontFamily: 'Inter', fontWeight: '400'}}>
+                    解説:<p style={{textAlign:"left"}} dangerouslySetInnerHTML={{__html:String(quiz.description)}}/>
+                </div>
+                <div style={{color: 'black', fontSize: 20, fontFamily: 'Inter', fontWeight: '400'}}>
+                    <p>total:{quiz.total_reaoinses+1}</p>
+                    <p>choice:{statistics.choice_responses+1}</p>
+                    <p>{Math.floor((statistics.choice_responses + 1) / (quiz.total_reaoinses + 1) * 100)}%</p>
+                </div>
+                <div style={{width: 141.96, height: 33, left: 296, position: 'absolute'}}>
+                    <div onClick={() => router.push('/question')} style={{width: 141.96, height: 33, left: 0, top: 0, position: 'absolute', background: '#F36D6D', borderRadius: 20}} />
+                    <div onClick={() => router.push('/question')} style={{width: 74.13, height: 18.78, left: 34, position: 'absolute', textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Inter', fontWeight: '400'}}>
+                        next
+                    </div>
                 </div>
             </div>
-            <div style={{left: 50, top: 45, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>
-                {quiz.description}
-            </div>
-            <div style={{left: 50, top: 137, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>
-                <p>total:{quiz.total_reaoinses+1}</p>
-                <p>choice:{statistics.choice_responses+1}</p>
-                <p>{Math.floor((statistics.choice_responses + 1) / (quiz.total_reaoinses + 1) * 100)}%</p>
-            </div>
-        </div>
         ):(
             <p></p>
         )}
