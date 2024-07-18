@@ -1,21 +1,23 @@
+'use client'
+
+import { useRouter } from "next/navigation"
+
 //スタート画面
 const Start = () => {
+    const router = useRouter();
     return (
-        <main className="min-h-screen flex justify-center items-center">
-            <div className="w-[498px] h-[275px] bg-white relative">
-                <div className="absolute left-[77px] top-[93px] text-zinc-950 text-[40px] font-normal font-['Inter']">
-                    Teston
-                </div>
-                <div className="absolute left-[272px] top-[148px]">
-                    {/* Wrap "start" text with Link component for navigation */}
-                    <Link href="../question"
-                          className="block px-4 py-2 bg-red-400 rounded-[20px] text-white text-xl font-normal font-['Inter']">
+        <div style={{width: 498, height: 275, position: 'relative', background: 'white'}}>
+            <div style={{width: 132, height: 67, left: 77, top: 87, position: 'absolute', color: '#050505', fontSize: 40, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>
+                Teston
+            </div>
+            <div style={{width: 150, height: 45, left: 272, top: 143, position: 'absolute', background: '#E77878', borderRadius: 20, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 10, display: 'inline-flex'}}>
+                <div onClick={() => router.push('/question')} style={{alignSelf: 'stretch', padding: 10, justifyContent: 'center', alignItems: 'center', gap: 10, display: 'inline-flex'}}>
+                    <div style={{textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>
                         start
-
-                    </Link>
+                    </div>
                 </div>
             </div>
-        </main>
+        </div>
     )
 }
 
