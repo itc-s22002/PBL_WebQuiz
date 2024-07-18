@@ -13,8 +13,7 @@ const Question = () => {
 
     const [quiz, setQuiz] = useState(null);
     const [choice, setChoise] = useState([]);
-    //const randomNumber = Math.floor(Math.random() * (2 + 1 - 1)) + 1;
-    const randomNumber = 0;
+    const randomNumber = Math.floor(Math.random() * (3 + 1 - 0)) + 0;
     const router = useRouter();
     
 
