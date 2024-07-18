@@ -11,14 +11,22 @@ const firestore = getFirestore(app)
 
 //解説画面
 const Explanation = () => {
+    //画面遷移するときのやつ
     const router = useRouter();
+    //uqeryデータを取得するやつ
     const searchParams = useSearchParams()
+    //取ってきたquizを入れるやつ
     const [quiz, setQuiz] = useState(null);
+    //取ってきた統計を取るやつ
     const [statistics, setStatistics] = useState([]);
+    //uqeryデータを取得するやつ
     const quizId = searchParams.get('quizid')
+    //uqeryデータを取得するやつ
     const choiceId = searchParams.get('choiseid')
 
+    //firebaseをからデータを取得
     const fetchData = async () => {
+        //get
         try {
             const quizDocRef = doc(firestore, 'quiz',String(quizId));
             const statisticsDocRef = doc(firestore, 'statistics',String(choiceId));
@@ -27,6 +35,7 @@ const Explanation = () => {
             if (quizSnapshot.exists()) {
                 const q = quizSnapshot.data()
                 const s = statisticsSnapshot.data()
+                //put
                 try {
                     const docRef = doc(firestore, 'statistics', String(choiceId));
                     const docRef2 = doc(firestore, 'quiz', String(quizId));
@@ -46,7 +55,7 @@ const Explanation = () => {
             console.error('Error fetching quiz data: ', error);
         }
     };
-
+    //アクセスと同時にやるやつ
     useEffect(() => {
         fetchData();
     }, []);
