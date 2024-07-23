@@ -81,12 +81,18 @@ const Question = () => {
                             {choice[0].choice}
                         </div>
                     </div>
+                    <div onClick={() => router.push('/start')} style={{width: 141.96, height: 33, left: 175, top: 150, position: 'absolute'}}>
+                        <div style={{width: 141.96, height: 33, left: 0, top: 0, position: 'absolute', background: '#F36D6D', borderRadius: 20}} />
+                        <div style={{width: 74.13, height: 18.78, left: 34, top: 0, position: 'absolute', textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>
+                            end
+                        </div>
+                    </div>
                 </div>
             </div>
     ):(
             <></>
     )}
-    
+
   </>
 )
 }
