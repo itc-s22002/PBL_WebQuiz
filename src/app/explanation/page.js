@@ -79,7 +79,13 @@ const Explanation = () => {
                         next
                     </div>
                 </div>
-            </div>
+                <div onClick={() => router.push('/start')} style={{ width: 141.96, height: 33, background: '#F36D6D', borderRadius: 20, cursor: 'pointer', marginTop: 10 }}>
+                    <div style={{ width: 74.13, height: 18.78, textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', lineHeight: '33px' }}>
+                        end
+                 </div>
+                </div>
+                </div>
+
         ):(
             <p></p>
         )}
