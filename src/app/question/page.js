@@ -3,7 +3,7 @@
 import { getDoc, doc, getFirestore, query, collection, where, getDocs,orderBy} from "firebase/firestore"
 import React, {useState, useEffect, Component} from "react";
 import app from '../../../firebase_Config'
-import { useRouter } from 'next/navigation';
+import {useRouter} from "next/navigation";
 
 
 const firestore = getFirestore(app)
