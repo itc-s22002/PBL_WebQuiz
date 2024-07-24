@@ -3,12 +3,8 @@
 import {useState, useEffect} from "react";
 import { onAuthStateChanged,getAuth } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
-
 import { app } from '../../../firebase_Config';
-
-
 const auth = getAuth(app);
-
 
 //スタート画面
 const Start = () => {
@@ -47,6 +43,7 @@ const Start = () => {
                 </div>
             </div>
         </div>
+
     )
 }
 
