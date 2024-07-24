@@ -1,11 +1,35 @@
 'use client'
 
-import { useRouter } from "next/navigation"
-import {useState} from "react";
+import {useState, useEffect} from "react";
+import { onAuthStateChanged,getAuth } from 'firebase/auth';
+import { useRouter } from 'next/navigation';
+import { app } from '../../../firebase_Config';
+const auth = getAuth(app);
 
 //スタート画面
 const Start = () => {
     const router = useRouter();
+
+        const [user, setUser] = useState(null);
+
+        useEffect(() => {
+
+            // ログイン状態が変更されたときに呼ばれるコールバック
+            const unsubscribe = onAuthStateChanged(auth, (authUser) => {
+                if (authUser) {
+                    setUser(authUser);
+                    // router.push('/start');
+                } else {
+                    setUser(null);
+                    console.log("ng")
+                    router.push('/login');
+                }
+            });
+
+            // コンポーネントがアンマウントされるときにunsubscribe
+            return () => unsubscribe();
+        }, []);
+
     return (
         <div style={{width: 498, height: 275, position: 'relative', background: 'white'}}>
             <div style={{width: 132, height: 67, left: 77, top: 87, position: 'absolute', color: '#050505', fontSize: 40, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>
