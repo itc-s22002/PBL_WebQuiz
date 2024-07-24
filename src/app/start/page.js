@@ -1,6 +1,7 @@
 'use client'
 
 import { useRouter } from "next/navigation"
+import {useState} from "react";
 
 //スタート画面
 const Start = () => {
@@ -18,6 +19,7 @@ const Start = () => {
                 </div>
             </div>
         </div>
+
     )
 }
 
