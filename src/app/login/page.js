@@ -3,12 +3,14 @@
 import { useState } from "react";
 import { signInWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { app } from '../../../firebase_Config';
+import {useRouter} from "next/navigation";
 
 const auth = getAuth(app);
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const router = useRouter();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -16,11 +18,15 @@ const LoginPage = () => {
         try {
             // FirebaseのsignInWithEmailAndPasswordメソッドを使用してログイン
             await signInWithEmailAndPassword(auth, email, password);
-            // router.push('/dashboard'); // ログイン成功後、ダッシュボードページにリダイレクト
             console.log('ok');
+            router.push('/start'); // ログイン成功後、ダッシュボードページにリダイレクト
         } catch (error) {
             console.log('Login Error', error);
         }
+        console.log("unko")
+    }
+    const handleRouter = async() =>{
+        router.push('/signup');
     }
 
     return (
@@ -54,7 +60,7 @@ const LoginPage = () => {
                 }}>
                     ユーザーログイン
                 </h1>
-                <form onSubmit={handleLogin} style={{ width: '100%', maxWidth: '400px' }}>
+                <div style={{ width: '100%', maxWidth: '400px' }}>
                     <div style={{
                         marginBottom: '15px',
                         display: 'flex',
@@ -101,23 +107,44 @@ const LoginPage = () => {
                             />
                         </label>
                     </div>
-                    <button type="submit" style={{
-                        width: '100%',
-                        maxWidth: '150px',
-                        height: '40px',
-                        backgroundColor: '#f36d6d',
-                        border: 'none',
-                        borderRadius: '20px',
-                        color: 'white',
-                        fontSize: '1rem',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}>
-                        ログイン
-                    </button>
-                </form>
+                    <div style={{display: "flex",
+                                    gap: "1rem",
+                                    marginTop: "2rem"}}>
+                        <button onClick={handleLogin} style={{
+                            width: '100%',
+                            maxWidth: '150px',
+                            height: '40px',
+                            backgroundColor: '#f36d6d',
+                            border: 'none',
+                            borderRadius: '20px',
+                            color: 'white',
+                            fontSize: '1rem',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}>
+                            ログイン
+                        </button>
+                        <button onClick = {handleRouter} style={{
+                            width: '100%',
+                            maxWidth: '150px',
+                            height: '40px',
+                            backgroundColor: '#f36d6d',
+                            border: 'none',
+                            borderRadius: '20px',
+                            color: 'white',
+                            fontSize: '1rem',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                            
+                        }}>
+                            新規登録
+                        </button> 
+                        </div>   
+                </div>
             </div>
         </div>
     );
