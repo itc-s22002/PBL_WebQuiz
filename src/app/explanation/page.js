@@ -60,31 +60,76 @@ const Explanation = () => {
         fetchData();
     }, []);
 
-
-    return(
-        <>
+    return (
+      <>
         {quiz ? (
-            <div style={{padding: 12,max_width: 800,margin:(0,"auto")}}>
-                <div style={{left: 50, color: 'black', fontSize: 20, fontFamily: 'Inter', fontWeight: '400'}}>
-                    解説:<p style={{textAlign:"left"}} dangerouslySetInnerHTML={{__html:String(quiz.description)}}/>
+          <div style={{
+            width: '100%',
+            height: '100vh',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            background: 'white'
+          }}>
+            <div style={{
+              width: 800,
+              maxWidth: '90%',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              padding: 20
+            }}>
+              <div style={{
+                color: 'black',
+                fontSize: quiz.description.length > 200 ? 16 : 22,
+                fontFamily: 'Inter',
+                fontWeight: '400',
+                marginBottom: 30,
+                textAlign: 'left',
+                width: '100%'
+              }}>
+                解説:
+                <p style={{marginTop: 10}} dangerouslySetInnerHTML={{__html:String(quiz.description)}}/>
+              </div>
+              <div style={{
+                color: 'black',
+                fontSize: 18,
+                fontFamily: 'Inter',
+                fontWeight: '400',
+                marginBottom: 30,
+                textAlign: 'center',
+                width: '100%'
+              }}>
+                <p>total: {quiz.total_reaoinses + 1}</p>
+                <p>choice: {statistics.choice_responses + 1}</p>
+                <p>{Math.floor((statistics.choice_responses + 1) / (quiz.total_reaoinses + 1) * 100)}%</p>
+              </div>
+              <div style={{
+                width: 150,
+                height: 40,
+                background: '#F36D6D',
+                borderRadius: 20,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                cursor: 'pointer'
+              }} onClick={() => router.push('/question')}>
+                <div style={{
+                  color: 'white',
+                  fontSize: 20,
+                  fontFamily: 'Inter',
+                  fontWeight: '400'
+                }}>
+                  next
                 </div>
-                <div style={{color: 'black', fontSize: 20, fontFamily: 'Inter', fontWeight: '400'}}>
-                    <p>total:{quiz.total_reaoinses+1}</p>
-                    <p>choice:{statistics.choice_responses+1}</p>
-                    <p>{Math.floor((statistics.choice_responses + 1) / (quiz.total_reaoinses + 1) * 100)}%</p>
-                </div>
-                <div style={{width: 141.96, height: 33, left: 296, position: 'absolute'}}>
-                    <div onClick={() => router.push('/question')} style={{width: 141.96, height: 33, left: 0, top: 0, position: 'absolute', background: '#F36D6D', borderRadius: 20}} />
-                    <div onClick={() => router.push('/question')} style={{width: 74.13, height: 18.78, left: 34, position: 'absolute', textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Inter', fontWeight: '400'}}>
-                        next
-                    </div>
-                </div>
+              </div>
             </div>
-        ):(
-            <p></p>
+          </div>
+        ) : (
+          <p></p>
         )}
-        </>
-        );
-}
+      </>
+    );
+    }
 
 export default Explanation

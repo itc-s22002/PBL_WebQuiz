@@ -49,46 +49,73 @@ const Question = () => {
     }, []);
 
     return (
-    <>
-    {quiz ? (
-            <div style={{width: 498, height: 275,background: 'white'}}>
-                <div>
-                    <div style={{color: 'black', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>
-                        問題:
-                        <div dangerouslySetInnerHTML={{__html:String(quiz.question)}}/>
+      <>
+        {quiz ? (
+          <div style={{
+            width: '100%',
+            height: '100vh',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            background: 'white'
+          }}>
+            <div style={{
+              width: 600,
+              maxWidth: '90%',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center'
+            }}>
+              <div style={{
+                color: 'black',
+                fontSize: quiz.question.length > 150 ? 25 : 35,
+                fontFamily: 'Inter',
+                fontWeight: '400',
+                wordWrap: 'break-word',
+                marginBottom: 40,
+                textAlign: 'center',
+                lineHeight: 1.4
+              }}>
+                問題:
+                <div dangerouslySetInnerHTML={{__html:String(quiz.question)}}/>
+              </div>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, 1fr)',
+                gap: 25,
+                width: '100%'
+              }}>
+                {choice.map((c, index) => (
+                  <div key={c.id} onClick={() => router.push(`/explanation?choiseid=${c.id}&quizid=${c.quiz_id}`)} style={{
+                    width: '100%',
+                    height: 50,
+                    background: '#F36D6D',
+                    borderRadius: 25,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    cursor: 'pointer'
+                  }}>
+                    <div style={{
+                      color: 'white',
+                      fontSize: 30,
+                      fontFamily: 'Inter',
+                      fontWeight: '400',
+                      textAlign: 'center',
+                      padding: '0 10px'
+                    }}>
+                      {c.choice}
                     </div>
-                </div>
-                <div style={{position: 'absolute'}}>
-                    <div onClick={() => router.push(`/explanation?choiseid=${choice[3].id}&quizid=${choice[3].quiz_id}`)} style={{width: 141.96, height: 33, left: 283, top: 100, position: 'absolute'}}>
-                        <div style={{width: 141.96, height: 33, left: 0, top: 0, position: 'absolute', background: '#F36D6D', borderRadius: 20}} />
-                        <div style={{width: 74.13, height: 18.78, left: 34, top: 0, position: 'absolute', textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>
-                            {choice[3].choice}<br/>
-                        </div>
-                    </div>
-                    <div onClick={() => router.push(`/explanation?choiseid=${choice[2].id}&quizid=${choice[2].quiz_id}`)}style={{width: 141.96, height: 33, left: 73, top: 100, position: 'absolute'}}>
-                        <div style={{width: 141.96, height: 33, left: 0, top: 0, position: 'absolute', background: '#F36D6D', borderRadius: 20}} />
-                        <div style={{width: 74.13, height: 18.78, left: 34, top: 0, position: 'absolute', textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>
-                            {choice[2].choice}</div>
-                        </div>
-                    <div onClick={() => router.push(`/explanation?choiseid=${choice[1].id}&quizid=${choice[1].quiz_id}`)} style={{width: 141.96, height: 33, left: 283, top: 50, position: 'absolute'}}>
-                        <div style={{width: 141.96, height: 33, left: 0, top: 0, position: 'absolute', background: '#F36D6D', borderRadius: 20}} />
-                        <div style={{width: 74.13, height: 18.78, left: 34, top: 0, position: 'absolute', textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>
-                            {choice[1].choice}</div>
-                        </div>
-                    <div onClick={() => router.push(`/explanation?choiseid=${choice[0].id}&quizid=${choice[0].quiz_id}`)} style={{width: 141.96, height: 33, left: 73, top: 50, position: 'absolute'}}>
-                        <div style={{width: 141.96, height: 33, left: 0, top: 0, position: 'absolute', background: '#F36D6D', borderRadius: 20}} />
-                        <div style={{width: 74.13, height: 18.78, left: 34, top: 0, position: 'absolute', textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>
-                            {choice[0].choice}
-                        </div>
-                    </div>
-                </div>
+                  </div>
+                ))}
+              </div>
             </div>
-    ):(
-            <></>
-    )}
-    
-  </>
-)
+          </div>
+        ) : (
+          <></>
+        )}
+      </>
+    )
 }
 
 export default Question
